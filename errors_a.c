@@ -47,4 +47,21 @@ int f_open_error(char *filename)
  *
  * Return: (EXIT_FAILURE) always.
  */
+int unknown_op_error(char *opcode, unsigned int line_num)
+{
+	fprintf(stderr, "L%u: unknown instruction %s\n", line_num,
+			opcode);
+	return (EXIT_FAILURE);
+}
 
+/**
+ * no_int_error - Prints invalid monty_pushargument error messages.
+ * @line_num: Line number in Monty bytecodes file where error occurred.
+ *
+ * Return: (EXIT_FAILURE) always.
+ */
+int no_int_error(unsigned int line_num)
+{
+	fprintf(stderr, "L%u: usage: push integer\n", line_num);
+	return (EXIT_FAILURE);
+}
