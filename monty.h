@@ -40,7 +40,7 @@ typedef struct instruction_s
 {
 	char *opcode;
 	void (*f)(stack_t **stack, unsigned int line_num);
-} instruction_t
+} instruction_t;
 
 /* PRIMARY INTERPRETER FUNCTIONS */
 void free_stack(stack_t **stack);
