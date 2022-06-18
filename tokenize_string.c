@@ -99,7 +99,7 @@ int get_word_length(char *str, char *delims)
 		{
 			wLen++;
 		}
-		if (wLen > 0 && is_delims(str[i], delims))
+		if (wLen > 0 && is_delim(str[i], delims))
 			break;
 		i++;
 	}
@@ -150,7 +150,7 @@ char *get_next_word(char *str, char *delims)
 			pending = 1;
 		else if (pending)
 			break;
-		i++
+		i++;
 	}
 	return (str + i);
 }
