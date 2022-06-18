@@ -119,7 +119,7 @@ int get_word_count(char *str, char *delims)
 
 	while (*(str + i))
 	{
-		if (is_delims(str[i], delims))
+		if (is_delim(str[i], delims))
 			pending = 1;
 		else if (pending)
 		{
