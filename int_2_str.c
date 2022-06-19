@@ -2,33 +2,33 @@
 
 char *get_int(int num);
 unsigned int _abs(int);
-int get_numbase_len(unsigned int num, unsigned int base);
+int get_num_len(unsigned int num, unsigned int base);
 void fill_numbase_buff(unsigned int num, unsigned int base,
 		char *buff, int buff_size);
 
 /**
- * get_int - Gets a character pointer to new string containing int
+ * int_conv_str - Gets a character pointer to new string containing int
  * @num: Number to convert to string
  *
  * Return: Character pointer to newly created string. NULL if malloc fails.
  */
-char *get_int(int num)
+char *int_conv_str(int num)
 {
 	unsigned int temp;
-	int length = 0;
+	int len = 0;
 	long num_l = 0;
 	char *ret;
 
 	temp = _abs(num);
-	length = get_numbase_len(temp, 10);
+	len = get_num_len(temp, 10);
 
 	if (num < 0 || num_l < 0)
-		length++;
-	ret = malloc(length + 1);
+		len++;
+	ret = malloc(len + 1);
 	if (ret == NULL)
 		return (NULL);
 
-	fill_numbase_buff(temp, 10, ret, length);
+	fill_numbase_buff(temp, 10, ret, len);
 	if (num < 0 || num_l < 0)
 		ret[0] = '-';
 
@@ -49,13 +49,13 @@ unsigned int _abs(int i)
 }
 
 /**
- * get_numbase_len - Gets length of buffer needed for an unsigned int
+ * get_num_len - Gets length of buffer needed for an unsigned int
  * @num: Number to get length needed for
  * @base: Base of number representation used by buffer
  *
  * Return: Integer containing length of buffer needed (NULL excluded)
  */
-int get_numbase_len(unsigned int num, unsigned int base)
+int get_num_len(unsigned int num, unsigned int base)
 {
 	int len = 1;
 
