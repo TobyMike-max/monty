@@ -22,7 +22,7 @@ void set_op_tok_error(int error_code)
 		new_toks[i] = op_toks[i];
 		i++;
 	}
-	exit_str = get_int(error_code);
+	exit_str = int_conv_str(error_code);
 	if (!exit_str)
 	{
 		free(new_toks);
